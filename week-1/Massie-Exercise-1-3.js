@@ -1,18 +1,5 @@
 const header = require('../Massie-header.js');
   console.log(header.display("Sarah", "Massie", "Exercise 1.3"));
-/*
- Expected output:
-
- FirstName LastName
- <AssignmentName>
- <Today's Date>
-
- -- DISPLAYING CELL PHONE DETAILS --
- Manufacturer: <manufacturer>
- Model: <model>
- Color: <color>
- Price: <price>
-*/
 
 // start program
 
