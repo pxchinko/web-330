@@ -1,16 +1,5 @@
 var header = require('../Massie-header.js');
   console.log(header.display("Sarah", "Massie", "Exercise 2.2"));
-/*
- Expected output:
-
- FirstName LastName
- <AssignmentName>
- <Today's Date>
-
- The person's full name is '<fullname>.'
- The person's age is '<age>.'
-
-*/
 
 // start program
 
