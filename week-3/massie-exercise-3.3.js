@@ -1,5 +1,15 @@
-var header = require("../Massie-header");
+const header = require("../Massie-header");
     console.log(header.display("Sarah", "Massie", "Exercise 3.3"));
+
+/*
+============================================
+; Title:  massie-exercise-3.3.js
+; Author: Professor Krasso
+; Date:   24 August 2020
+; Modified by: Sarah Massie
+; Description: Learning Singleton Design
+;===========================================
+*/
 
 // start program
 

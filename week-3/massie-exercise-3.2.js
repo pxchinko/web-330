@@ -1,5 +1,14 @@
-var header = require('../Massie-header.js');
+const header = require('../Massie-header.js');
     console.log(header.display("Sarah", "Massie", "Exercise 3.2"))
+/*
+============================================
+; Title:  massie-exercise-3.2.js
+; Author: Professor Krasso
+; Date:   24 August 2020
+; Modified by: Sarah Massie
+; Description: Learning Factory Design
+;===========================================
+*/
 
 // start program
 function Postgres(properties) {
