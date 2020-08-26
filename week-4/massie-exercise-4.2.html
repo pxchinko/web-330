@@ -1,0 +1,31 @@
+<!--
+============================================
+; Title:  massie-exercise-4.2.js
+; Author: Professor Krasso
+; Date:   26 August 2020
+; Modified by: Sarah Massie
+; Description: Using the jQuery get operation
+;===========================================
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Exercise 4.2</title>
+        <!-- jQuery reference -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h4>HTTP GET Request</h4>
+
+        <button id="myButton">Get a random dog breed</button>
+        <script>
+          $(function() {
+            $("#myButton").click(function() {
+                $.get("https://dog.ceo/api/breeds/image/random", function(data, status) {
+                    console.log('Data: ' + JSON.stringify(data) + '\nStatus: ' + status);
+                })
+            });
+        });  
+        </script>
+    </body>
+</html>
