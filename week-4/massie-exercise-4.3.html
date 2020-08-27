@@ -1,0 +1,55 @@
+<!--
+============================================
+; Title:  massie-exercise-4.3.js
+; Author: Professor Krasso
+; Date:   26 August 2020
+; Modified by: Sarah Massie
+; Description: Using the jQuery PUT and DELETE operation
+;===========================================
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Exercise 4.3</title>
+    <!-- jQuery reference -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h4>HTTP PUT</h4>
+
+    <button id="putButton">HTTP PUT Request</button>
+
+    <h4>HTTP DELETE</h4>
+
+    <button id="deleteButton">HTTP DELETE Request</button>
+
+  <script type="text/javascript">
+    $(function() {
+      $("#putButton").click(function() {
+        $.ajax({
+          url: "http://httpbin.org/put", 
+          dataType: "json",
+          type: "PUT",
+          data: {firstName: "John", lastName: "Doe"},
+          success: function(data, status) {
+            console.log('First Name: ' + data.form.firstName + '\nLast Name: ' + data.form.lastName + "\nStatus: " + status);
+        }});
+      });
+    });  
+
+    $(function() {
+      $("#deleteButton").click(function() {
+        $.ajax({
+          url: "http://httpbin.org/delete", 
+          dataType: "json",
+          type: "DELETE",
+          data: {username: "admin", password: "secret"},
+          success: function(data, status) {
+            console.log('Username: ' + data.form.username + '\nPassword: ' + data.form.password + "\nStatus: " + status);
+        }});
+      });
+    });  
+  </script>
+
+  </body>
+</html>
