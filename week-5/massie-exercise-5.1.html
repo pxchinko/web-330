@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Namespace Example</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    </head>
+<body>
+    <section>
+        <p>We're going to take this text away.</p>
+        <button>Click me to remove the namespace</button>
+    </section>
+</body> 
+
+<script>
+    $(document).ready(function() {
+        $("p").on("custom.someNamespace",function(event){
+            alert(event.namespace);
+        });
+        $("p").click(function(event){
+            $(this).trigger("custom.someNamespace");
+        });  
+        $("button").click(function(){
+            $("p").off("custom.someNamespace");
+    });
+    })
+</script>
+</html>
