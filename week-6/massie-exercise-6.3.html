@@ -1,13 +1,12 @@
 <!--
 ============================================
-; Title:  massie-exercise-6.2.html
+; Title:  massie-exercise-6.3.html
 ; Author: Professor Krasso
 ; Date:   9 September 2020
 ; Modified by: Sarah Massie
-; Description: Creating an View Model function using Knockout.js
+; Description: Creating an Object Literal using Knockout.js
 ;===========================================
 -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +16,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <title>Exercise 6.2</title>
+    <title>Exercise 6.3</title>
 
     <!-- Stylesheet - Bootstrap -->
     <link
@@ -34,18 +33,7 @@
       charset="UTF-8"
     ></script>
     <script src="../knockout-v3.5.js"></script>
-    <style>
-      html {
-        align-items: center;
-        height: 100vh;
-      }
-      .container {
-        padding: 10px 20px;
-        border-radius: 10px;
-      }
-    </style>
   </head>
-
 <body>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
@@ -59,30 +47,31 @@
         <a class="nav-link" href="#">Contact Us</a>
       </li>
     </ul>
-    </nav>
+  </nav>
     <div role="main" class="container">
       <br/><br/>
-        <h2>Knockout Person View Model Example</h2>
-        <div class="form-group">
-            <label for="txtFirstName">First Name:</label>
-            <input type="text" class="form-control alert-warning" data-bind="value: firstName" id="txtFirstName"/>
-        </div>
-        <div class="form-group">
-            <label for="txtLastName">Last Name:</label>
-            <input type="text" class="form-control alert-warning" data-bind="value: lastName" id="txtLastName"/>
-        </div>
-        <div class="form-group">
-            <label for="txtEmailAddress">Email Address:</label>
-            <input type="text" class="form-control alert-warning" data-bind="value: emailAddress" id="txtEmailAddress"/>
-        </div>
+      <h2>Knockout Object Literal</h2>
+      <div class="form-group">
+        <label for="txtFirstName">First Name:</label>
+        <input type="text" class="form-control alert-warning" data-bind="value: firstName" id="txtFirstName">
+      </div>
+      <div class="form-group">
+        <label for="txtLastName">Last Name:</label>
+        <input type="text" class="form-control alert-warning" data-bind="value: lastName" id="txtLastName">
+      </div>
+      <div class="form-group">
+        <label for="txtEmailAddress">Email Address:</label>
+        <input type="text" class="form-control alert-warning" data-bind="value: emailAddress" id="txtEmailAddress">
+      </div>
     </div>
     <script>
-        function PersonViewModel() {
-            this.firstName = ko.observable("Jotaro");
-            this.lastName = ko.observable("Kujo");
-            this.emailAddress = ko.observable("oraoraora1983@gmail.com");
-        };
-        ko.applyBindings(new PersonViewModel());
+      var personViewModel = {
+        firstName: "Jotaro",
+        lastName: "Kujo",
+        emailAddress: "oraoraora1983@domain.com"
+      };
+
+      ko.applyBindings(personViewModel);
     </script>
   </body>
 </html>
