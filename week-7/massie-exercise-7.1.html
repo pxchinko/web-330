@@ -1,0 +1,64 @@
+<!--
+============================================
+; Title:  massie-exercise-7.1.html
+; Date:   17 September 2020
+; Modified by: Sarah Massie
+; Description: Creating a custom binding to replace text
+;===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Custom Binding</title>
+
+    <!-- Stylesheet - Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+      integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous"
+    />
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../knockout-v3.5.js"></script>
+</head>
+
+<body>
+  <div role="main" class="container">
+      <br />
+    <h1>Learning Custom Binding</h1>
+        
+  <div class="form-group"><input type="text" data-bind="value: myField, replaceText: {value: myField, find:' ', replace:'$make it rain$'}" />
+</div>
+</body>
+
+<script type="text/javascript">        
+
+ko.bindingHandlers.replaceText = {
+
+//On update, grab the current value and replace text
+'update': function(element, valueAccessor, allBindings, viewModel, bindingContext) {
+
+   var val = ko.utils.unwrapObservable(valueAccessor().value());
+   var replacedValue = val.split(valueAccessor().find).join(valueAccessor().replace);
+   valueAccessor().value(replacedValue);
+}
+}
+var ViewModel = function(){
+  var self = this;
+  self.myField = ko.observable("");
+}
+
+ko.applyBindings(new ViewModel());
+
+</script>
+
+</html>
