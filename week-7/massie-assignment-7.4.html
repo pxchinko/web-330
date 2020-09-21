@@ -1,0 +1,75 @@
+<!--
+============================================
+; Title:  massie-assignment-7.4.html
+; Date:   20 September 2020
+; Author: Richard Krasso
+; Modified by: Sarah Massie
+; Description: Using KO's foreach binding on a table
+;===========================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Assignment 7.4</title>
+
+    <!-- Stylesheet - Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+    integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- JavaScript Libraries -->
+  <script src="../knockout-v3.5.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-light navbar-light">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact Us</a>
+      </li>
+    </ul>
+  </nav>
+  <br/><br/>
+<div role="main" class="container">
+  <h2>Websites to Browse</h2>
+  <br/>
+  <table class="table table-light table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody data-bind="foreach: tutorials">
+      <tr>
+        <td data-bind="text: title"></td>
+        <td data-bind="text: description"></td>
+        <td><a data-bind="attr: { href: url, text: title}" target="_blank"><span data-bind="text: url"></span></a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+function TutorialViewModel() {
+  this.tutorials = ko.observableArray([
+    {url: "http://www.titlescream.com/", title: "Title Scream", description: "Game titles and graphics from 8-bit and 16-bit games throughout the years"},
+    {url: "https://thegeekdesigner.com/", title: "Alex Pierce", description: "Alex Pierce's graphic and web design portfolio inspired by retro game design"},
+    {url: "https://www.slynyrd.com/", title: "Raymond Schlitter", description: "Raymond Schlitter's art portfolio consisting of pixel art, graphics, and animations"},
+    {url: "https://tobiasahlin.com/", title: "Tobias Ahlin", description: "The web design portfolio and blog of Tobias Ahlin, consisting of CSS tips and sources"},
+    {url: "https://animista.net/", title: "Animista", description: "Animista is a library of pre-made CSS animations for you to use and tweak"}
+  ])
+};
+ko.applyBindings(new TutorialViewModel());
+</script>
+
+</body>
+</html>
