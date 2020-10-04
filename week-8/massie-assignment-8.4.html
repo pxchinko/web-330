@@ -47,7 +47,7 @@
           <div class="form-group row">
             <label for="txtEmployeeList" class="col-3 col-form-label">Employee: </label>
             <div class="col-6">
-              <input type="text" data-bind="value: nameToAdd(), valueUpdate: 'afterkeydown'" 
+              <input type="text" data-bind="value: nameToAdd, valueUpdate: 'afterkeydown'" 
               class="form-control" id="txtName">
             </div>
             <div class="col-3">
@@ -153,9 +153,9 @@ function PayrollViewModel() {
   self.add = function() {
     if ((self.nameToAdd() !== "") && (self.Employees.indexOf(self.nameToAdd()) < 0 )) {
       self.error("");
-      var lastId = getLastID();
-      var employee = new EmployeeObject (++lastId, self.nameToAdd())
-      self.Employees.push(employee);
+      var lastId = self.Employees().length + 1
+      self.Employees.push(new EmployeeObject(lastId++, self.nameToAdd()));
+      console.log(new EmployeeObject)
     }
     else {
       self.error("Duplicate Name or Invalid Entry.");
@@ -164,13 +164,6 @@ function PayrollViewModel() {
   }
 
   self.nameToAdd = ko.observable("")
-
-  function getLastID() {
-    var idLength = self.Employees(),
-    employee = idLength[employeeList.length -1];
-
-    return employee.Id
-  }
 
   self.edit = function (Employee) {
     self.Employee(Employee);
